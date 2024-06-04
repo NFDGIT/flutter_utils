@@ -20,7 +20,7 @@ class FlutterUtils {
   }
 }
 
-/// 延迟防抖动
+/// 延迟防抖动,只执行抖动期间的最后的一个
 extension DebounceExtension<T, R> on Function(T) {
   Function(T) debounce(Duration duration) {
     Timer? timer;
@@ -37,7 +37,7 @@ extension DebounceExtension<T, R> on Function(T) {
     };
   }
 }
-/// 防止多次点击
+/// 防止多次点击，阀门期间的无效不执行
 extension ThrottleExtension<T, R> on Function(T) {
   Function(T) throttle(Duration duration) {
     late T? lastArgs;
